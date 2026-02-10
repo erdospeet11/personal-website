@@ -1,28 +1,53 @@
 <script lang="ts">
 	const profile = {
 		name: 'Peter Erdos',
+		links: {
+			github: 'https://github.com/erdospeet11',
+			linkedin: 'https://www.linkedin.com/in/erdospeterzs/',
+			cv: '/cv.pdf'
+		},
 		projects: [
 			{
-				title: 'CosmicFlow Dashboard',
+				title: 'NodeML',
 				description:
-					'Real-time telemetry visualization for orbital satellites using SvelteKit and D3.js.'
+					'A node-based machine learning interface for building and training machine learning models.',
+				link: 'https://github.com/erdospeet11/node-ml-workflow'
 			},
 			{
-				title: 'NeuroSync Interface',
-				description: 'A brain-computer interface (BCI) experimental portal for neural data mapping.'
+				title: 'Beautiful Solar Flare',
+				description: 'A beautiful solar flare analysis and visualization.',
+				link: 'https://github.com/erdospeet11/beautiful-data-space'
 			},
 			{
-				title: 'Gethub Explorer',
-				description: 'Advanced Git repository analytics tool with predictive growth modeling.'
+				title: 'Moba',
+				description: 'Not yet announced MOBA done in Godot and Golang'
 			},
 			{
-				title: 'Aether Analytics',
+				title: 'The Void Engine',
+				description: 'A 3D game engine done in C++, CMake, Conan, OpenGL',
+				link: 'https://github.com/erdospeet11/the-void-engine'
+			},
+			{
+				title: 'SINCE AI HACKATHON Sandvik Challenge ',
 				description:
-					'Decentralized data processing platform focusing on low-latency edge computing.'
+					'An intelligent Microsoft Teams bot that monitors channel messages, classifies spare parts inquiries using a hybrid AI pipeline, and provides proactive notifications with RAG-based spare parts matching',
+				link: 'https://github.com/erdospeet11/SINCE-AI-SANDVIK-CHALLENGE'
 			}
 		],
 		certs: ['AWS Machine Learning Associate', 'Azure Fundamentals'],
-		skills: ['SvelteKit', 'TypeScript', 'Vite', 'TailwindCSS', 'Node.js', 'PostgreSQL']
+		skills: [
+			'SvelteKit',
+			'TypeScript',
+			'Vite',
+			'TailwindCSS',
+			'Node.js',
+			'PostgreSQL',
+			'C#',
+			'Python',
+			'Godot',
+			'AWS',
+			'Azure'
+		]
 	};
 </script>
 
@@ -46,7 +71,85 @@
 	<div class="glass-container">
 		<section class="section name-section">
 			<h1>{profile.name}</h1>
-			<p class="subtitle">Full Stack Developer & Systems Architect</p>
+			<p class="subtitle">Software Engineer · DevOps, ML, Game Development</p>
+
+			<div class="social-links">
+				<a
+					href={profile.links.github}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="social-btn"
+					title="GitHub"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						><path
+							d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+						></path></svg
+					>
+					<span>GitHub</span>
+				</a>
+				<a
+					href={profile.links.linkedin}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="social-btn"
+					title="LinkedIn"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						><path
+							d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+						></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"
+						></circle></svg
+					>
+					<span>LinkedIn</span>
+				</a>
+				<a
+					href={profile.links.cv}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="social-btn"
+					title="CV"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline
+							points="14 2 14 8 20 8"
+						></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line
+							x1="16"
+							y1="17"
+							x2="8"
+							y2="17"
+						></line><polyline points="10 9 9 9 8 9"></polyline></svg
+					>
+					<span>CV</span>
+				</a>
+			</div>
 		</section>
 
 		<section class="section">
@@ -214,6 +317,44 @@
 		opacity: 0.6;
 		font-size: 1.2rem;
 		letter-spacing: 0.02em;
+	}
+
+	.social-links {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		margin-top: 1.5rem;
+	}
+
+	.social-btn {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.6rem 1.2rem;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 12px;
+		color: white;
+		text-decoration: none;
+		font-size: 0.9rem;
+		font-weight: 500;
+		transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+	}
+
+	.social-btn:hover {
+		background: rgba(255, 255, 255, 0.1);
+		border-color: rgba(255, 255, 255, 0.3);
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+	}
+
+	.social-btn svg {
+		opacity: 0.7;
+		transition: opacity 0.3s ease;
+	}
+
+	.social-btn:hover svg {
+		opacity: 1;
 	}
 
 	h2 {
