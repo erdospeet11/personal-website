@@ -1,11 +1,21 @@
 <script lang="ts">
-	import { activity } from '$lib/activity';
+	import { activity, type ActivityItem } from '$lib/activity';
+
+	let {
+		items = activity,
+		heading = 'ACTIVITY',
+		label = 'Recent activity'
+	}: {
+		items?: ActivityItem[];
+		heading?: string;
+		label?: string;
+	} = $props();
 </script>
 
-<aside class="activity" aria-label="Recent activity">
-	<h2 class="kicker head">ACTIVITY</h2>
+<aside class="activity" aria-label={label}>
+	<h2 class="kicker head">{heading}</h2>
 	<div class="feed">
-		{#each activity as item}
+		{#each items as item}
 			<article class="thread">
 				<div class="row">
 					<div class="gutter"><span class="count">{item.count}</span></div>
@@ -93,6 +103,7 @@
 						</div>
 					</div>
 				</div>
+				{#if item.meta || item.date || item.marked}
 				<div class="row">
 					<div class="gutter">
 						<svg class="tick" viewBox="0 0 16 16" aria-hidden="true">
@@ -115,6 +126,7 @@
 						</div>
 					</div>
 				</div>
+				{/if}
 				<div class="row is-preview">
 					<div class="gutter"></div>
 					<div class="cell">
@@ -243,7 +255,13 @@
 		min-width: 0;
 	}
 
+	.subject {
+		flex-wrap: wrap;
+		row-gap: 4px;
+	}
+
 	.title {
+		flex: 1 1 9em;
 		min-width: 0;
 		overflow: hidden;
 		color: var(--title);
@@ -259,7 +277,9 @@
 
 	.tags {
 		display: flex;
-		flex: none;
+		flex: 1 1 auto;
+		flex-wrap: wrap;
+		justify-content: flex-end;
 		gap: 6px;
 		margin-left: auto;
 	}

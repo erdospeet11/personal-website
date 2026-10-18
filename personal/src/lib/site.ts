@@ -13,7 +13,6 @@ export interface NavItem {
 
 export const nav: NavItem[] = [
 	{ label: 'Home', href: '/' },
-	{ label: 'Projects', href: '/projects' },
 	{ label: 'Email Contact', href: 'mailto:erdospepep9@gmail.com' },
 	{ label: 'Journal', href: '/journal' },
 	{ label: 'Activity', href: '/activity' },

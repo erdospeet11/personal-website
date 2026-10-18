@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ActivityFeed from '$lib/components/ActivityFeed.svelte';
+	import { projectFeed } from '$lib/projects';
 	import SiteShell from '$lib/components/SiteShell.svelte';
 	import portrait from '$lib/assets/profilepic.png';
 	import type { Tag } from '$lib/site';
@@ -161,7 +162,7 @@
 						<img src={portrait} alt="Péter Erdős" />
 					</div>
 					<div class="identity-copy">
-						<h1>Erdős Péter</h1>
+						<h1>Erdős Péter, 24yrs</h1>
 						<div class="bar">
 							<span class="kicker">STUDIES</span>
 							<p>{studies}</p>
@@ -220,7 +221,7 @@
 				</section>
 			</div>
 
-			<ActivityFeed />
+			<ActivityFeed items={projectFeed} heading="PROJECTS" label="Projects" />
 		</div>
 </SiteShell>
 

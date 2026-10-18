@@ -9,7 +9,7 @@ export interface ActivityItem {
 	href?: string;
 	external?: boolean;
 	tags: Tag[];
-	meta: string;
+	meta?: string;
 	date?: string;
 	marked?: boolean;
 	preview: string;
