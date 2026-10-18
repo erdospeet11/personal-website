@@ -12,10 +12,8 @@
 
 	interface WorkItem {
 		title: string;
-		detail: string;
-		when?: string;
-		href?: string;
-		external?: boolean;
+		when: string;
+		points: string[];
 		tags: Tag[];
 	}
 
@@ -45,80 +43,100 @@
 
 	const work: WorkItem[] = [
 		{
-			title: 'SINCE AI Hackathon — Sandvik Challenge',
-			detail:
-				'First place. A Teams bot that classifies spare-parts inquiries and matches them with a RAG pipeline.',
-			when: '2024',
-			href: 'https://github.com/erdospeet11/SINCE-AI-SANDVIK-CHALLENGE',
-			external: true,
-			tags: [
-				{ label: 'AI', tone: 'purple' },
-				{ label: '1ST', tone: 'orange' }
-			]
-		},
-		{
-			title: 'NodeFlow',
-			detail: 'Visual workflow editor and script constructor built from custom nodes.',
-			href: 'https://github.com/erdospeet11/NodeFlow',
-			external: true,
-			tags: [
-				{ label: 'SVELTE', tone: 'purple' },
-				{ label: 'AZURE', tone: 'purple' }
-			]
-		},
-		{
-			title: 'Fantasy Kozmoz League',
-			detail: 'Fantasy league app with automated drafts, live statistics, and team management.',
-			href: 'https://github.com/erdospeet11/fkg',
-			external: true,
+			title: 'Digital Solutions Intern · Ernst & Young Advisory Ltd.',
+			when: 'Dec 2024 – May 2025',
+			points: [
+				'Developed a RAG-based enterprise LLM chatbot on .NET, Azure, and React. After the project ended, several other service lines adopted it for their own business needs.',
+				'Built internal automation tools with ExcelScript and Microsoft Power Platform that streamlined business processes across organizational units.',
+				'Used AI-assisted development tools (GitHub Copilot) daily to speed up the development workflow.'
+			],
 			tags: [
 				{ label: '.NET', tone: 'purple' },
-				{ label: 'SQL', tone: 'purple' }
+				{ label: 'React', tone: 'purple' },
+				{ label: 'Azure', tone: 'purple' },
+				{ label: 'Python', tone: 'purple' },
+				{ label: 'ExcelScript', tone: 'purple' },
+				{ label: 'Power Platform', tone: 'purple' },
+				{ label: 'GitHub Copilot', tone: 'purple' },
+				{ label: 'RAG', tone: 'orange' },
+				{ label: 'LLM', tone: 'orange' }
 			]
 		},
 		{
-			title: 'Beautiful Solar Flare',
-			detail: 'Interactive dashboard for historic solar flares and celestial events.',
-			href: 'https://github.com/erdospeet11/beautiful-data-space',
-			external: true,
+			title: 'Systems Engineer Intern · MVMI Zrt.',
+			when: 'Nov 2025 – Apr 2026',
+			points: [
+				'Gained insight into running a large-enterprise IT infrastructure, including the day-to-day practice of Azure-based systems and Terraform (Infrastructure as Code) automation.',
+				'Joined operations and development meetings on Microsoft Entra ID access management and virtual machine configuration.'
+			],
 			tags: [
-				{ label: 'PYTHON', tone: 'purple' },
-				{ label: 'SVELTE', tone: 'purple' }
+				{ label: 'Azure', tone: 'purple' },
+				{ label: 'Terraform', tone: 'purple' },
+				{ label: 'Git', tone: 'purple' },
+				{ label: 'Jenkins', tone: 'purple' },
+				{ label: 'Prometheus', tone: 'purple' },
+				{ label: 'Microsoft Entra ID', tone: 'orange' }
 			]
 		}
 	];
 
-	const skills = [
-		{ id: 'figma', label: 'Figma' },
-		{ id: 'azure', label: 'Azure' },
-		{ id: 'blender', label: 'Blender' },
-		{ id: 'cs', label: 'C#' },
-		{ id: 'css', label: 'CSS' },
-		{ id: 'dotnet', label: '.NET' },
-		{ id: 'flask', label: 'Flask' },
-		{ id: 'githubactions', label: 'GitHub Actions' },
-		{ id: 'go', label: 'Go' },
-		{ id: 'godot', label: 'Godot' },
-		{ id: 'graphql', label: 'GraphQL' },
-		{ id: 'html', label: 'HTML' },
-		{ id: 'js', label: 'JavaScript' },
-		{ id: 'lua', label: 'Lua' },
-		{ id: 'mint', label: 'Mint' },
-		{ id: 'neovim', label: 'Neovim' },
-		{ id: 'nodejs', label: 'Node.js' },
-		{ id: 'postgres', label: 'PostgreSQL' },
-		{ id: 'postman', label: 'Postman' },
-		{ id: 'py', label: 'Python' },
-		{ id: 'react', label: 'React' },
-		{ id: 'sqlite', label: 'SQLite' },
-		{ id: 'supabase', label: 'Supabase' },
-		{ id: 'svelte', label: 'Svelte' },
-		{ id: 'threejs', label: 'Three.js' },
-		{ id: 'terraform', label: 'Terraform' },
-		{ id: 'ts', label: 'TypeScript' },
-		{ id: 'unity', label: 'Unity' },
-		{ id: 'vscode', label: 'VS Code' },
-		{ id: 'webpack', label: 'Webpack' }
+	const skillGroups: { title: string; icons: { name: string; light: string; dark: string }[] }[] = [
+		{
+			title: 'Development',
+			icons: [
+				{ name: 'C#', light: 'csharp', dark: 'csharp' },
+				{ name: 'Python', light: 'python', dark: 'python' },
+				{ name: 'TypeScript', light: 'typescript', dark: 'typescript' },
+				{ name: 'Go', light: 'golang', dark: 'golang' },
+				{ name: 'Svelte', light: 'svelte', dark: 'svelte' },
+				{ name: 'React', light: 'reactjs', dark: 'reactjs' },
+				{ name: '.NET', light: 'dotnet', dark: 'dotnet' },
+				{ name: 'Node.js', light: 'nodejs', dark: 'nodejs' }
+			]
+		},
+		{
+			title: 'Cloud & DevOps',
+			icons: [
+				{ name: 'Azure', light: 'azure', dark: 'azure' },
+				{ name: 'Entra ID', light: 'entra-id', dark: 'entra-id' },
+				{ name: 'AWS', light: 'aws', dark: 'aws-light' },
+				{ name: 'Terraform', light: 'terraform', dark: 'terraform' },
+				{ name: 'Docker', light: 'docker', dark: 'docker' },
+				{ name: 'Kubernetes', light: 'kubernetes', dark: 'kubernetes' },
+				{ name: 'Jenkins', light: 'jenkins', dark: 'jenkins' },
+				{ name: 'Git', light: 'git', dark: 'git' }
+			]
+		},
+		{
+			title: 'AI & automation',
+			icons: [
+				{ name: 'GitHub Copilot', light: 'github-copilot', dark: 'github-copilot-dark' },
+				{ name: 'Microsoft Copilot', light: 'microsoft-copilot', dark: 'microsoft-copilot' },
+				{ name: 'Claude', light: 'claude-ai', dark: 'claude-ai' },
+				{ name: 'Power Automate', light: 'microsoft-power-automate', dark: 'microsoft-power-automate' },
+				{ name: 'n8n', light: 'n8n', dark: 'n8n' }
+			]
+		},
+		{
+			title: 'Databases',
+			icons: [
+				{ name: 'PostgreSQL', light: 'postgresql', dark: 'postgresql' },
+				{ name: 'Supabase', light: 'supabase', dark: 'supabase' },
+				{ name: 'SQLite', light: 'sqlite', dark: 'sqlite' },
+				{ name: 'MySQL', light: 'mysql', dark: 'mysql' },
+				{ name: 'Microsoft SQL Server', light: 'microsoft-sql-server', dark: 'microsoft-sql-server-light' }
+			]
+		},
+		{
+			title: 'Design',
+			icons: [
+				{ name: 'Blender', light: 'blender', dark: 'blender' },
+				{ name: 'Godot', light: 'godot', dark: 'godot' },
+				{ name: 'Unity', light: 'unity', dark: 'unity-dark' },
+				{ name: 'Figma', light: 'figma', dark: 'figma' },
+				{ name: 'draw.io', light: 'draw-io', dark: 'draw-io' }
+			]
+		}
 	];
 
 	const activity: ActivityItem[] = [
@@ -213,8 +231,21 @@
 		}
 	];
 
+	function sharedIconSize(count: number, width: number, height: number, gap: number) {
+		let size = 0;
+		for (let cols = 1; cols <= count; cols++) {
+			const rows = Math.ceil(count / cols);
+			const byWidth = (width - gap * (cols - 1)) / cols;
+			const byHeight = (height - gap * (rows - 1)) / rows;
+			size = Math.max(size, Math.floor(Math.min(byWidth, byHeight)));
+		}
+		return Math.max(1, size);
+	}
+
 	let now = $state(new Date());
 	let theme = $state<'light' | 'dark'>('light');
+	let skillsEl = $state<HTMLElement | undefined>();
+	let iconSize = $state(48);
 
 	function toggleTheme() {
 		theme = theme === 'light' ? 'dark' : 'light';
@@ -245,6 +276,30 @@
 		}, 1000);
 		return () => clearInterval(id);
 	});
+
+	$effect(() => {
+		const root = skillsEl;
+		if (!root) return;
+
+		const measure = () => {
+			const lists = [...root.querySelectorAll<HTMLElement>('.skill-cols ul')].filter(
+				(list) => list.childElementCount > 0 && list.clientWidth >= 8 && list.clientHeight >= 8
+			);
+			if (lists.length === 0) return;
+			const count = Math.max(...lists.map((list) => list.childElementCount));
+			const fullest = lists.filter((list) => list.childElementCount === count);
+			const narrowest = fullest.reduce((a, b) => (a.clientWidth <= b.clientWidth ? a : b));
+			const shortest = fullest.reduce((a, b) => (a.clientHeight <= b.clientHeight ? a : b));
+			const gap = Number.parseFloat(getComputedStyle(narrowest).columnGap) || 8;
+			const next = sharedIconSize(count, narrowest.clientWidth, shortest.clientHeight, gap);
+			if (next !== iconSize) iconSize = next;
+		};
+
+		measure();
+		const observer = new ResizeObserver(measure);
+		observer.observe(root);
+		return () => observer.disconnect();
+	});
 </script>
 
 <svelte:head>
@@ -261,7 +316,8 @@
 	<div class="frame">
 		<header class="top">
 			<nav class="nav" aria-label="Primary">
-				{#each nav as item}
+				{#each nav as item, i}
+					{#if i > 0}<span class="pipe" aria-hidden="true">|</span>{/if}
 					{#if item.href}
 						<a
 							class="nav-btn"
@@ -353,48 +409,44 @@
 						{#each work as job}
 							<li>
 								<div class="job-top">
-									{#if job.href}
-										<a
-											class="job-title"
-											href={job.href}
-											target={job.external ? '_blank' : undefined}
-											rel={job.external ? 'noopener noreferrer' : undefined}
-										>
-											{job.title}
-										</a>
-									{:else}
-										<span class="job-title">{job.title}</span>
-									{/if}
-									<span class="tags">
-										{#each job.tags as tag}
-											<span class="tag" class:orange={tag.tone === 'orange'}>{tag.label}</span>
-										{/each}
-									</span>
+									<span class="job-title">{job.title}</span>
+									<span class="when">{job.when}</span>
 								</div>
-								<p class="detail">
-									{job.detail}
-									{#if job.when}<span class="when">{job.when}</span>{/if}
-								</p>
+								<ul class="points">
+									{#each job.points as point}
+										<li>{point}</li>
+									{/each}
+								</ul>
+								<div class="tags">
+									{#each job.tags as tag}
+										<span class="tag" class:orange={tag.tone === 'orange'}>{tag.label}</span>
+									{/each}
+								</div>
 							</li>
 						{/each}
 					</ul>
 				</section>
 
-				<section class="panel skills" aria-label="Skill icons">
+				<section class="panel skills" aria-label="Skills" bind:this={skillsEl}>
 					<h2 class="kicker">SKILLS</h2>
-					<ul class="skill-grid">
-						{#each skills as skill}
-							<li>
-								<img
-									src="https://skillicons.dev/icons?i={skill.id}"
-									alt={skill.label}
-									title={skill.label}
-									width="48"
-									height="48"
-								/>
-							</li>
+					<div class="skill-cols" style:--icon-size="{iconSize}px">
+						{#each skillGroups as group}
+							<div>
+								<h3>{group.title}</h3>
+								<ul>
+									{#each group.icons as icon}
+										<li>
+											<img
+												src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/{theme === 'dark' ? icon.dark : icon.light}.svg"
+												alt={icon.name}
+												title={icon.name}
+											/>
+										</li>
+									{/each}
+								</ul>
+							</div>
 						{/each}
-					</ul>
+					</div>
 				</section>
 			</div>
 
@@ -617,7 +669,6 @@
 		height: 100%;
 		min-height: 0;
 		padding: 14px;
-		border: 1px solid var(--line);
 	}
 
 	.top {
@@ -625,17 +676,20 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: 12px;
+		padding-bottom: 10px;
+		border-bottom: 1.5px solid var(--line);
 	}
 
 	.nav {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 8px;
+		align-items: center;
+		gap: 10px;
 	}
 
 	.nav-btn {
-		border: 1px solid var(--line);
-		padding: 6px 12px;
+		border: 0;
+		padding: 0;
 		color: var(--ink);
 		background: transparent;
 		font: inherit;
@@ -697,7 +751,7 @@
 	}
 
 	.pipe {
-		color: var(--faint);
+		color: var(--ink);
 		font-weight: 400;
 	}
 
@@ -720,7 +774,7 @@
 		min-height: 0;
 		flex-direction: column;
 		gap: 14px;
-		overflow: auto;
+		overflow: hidden;
 	}
 
 	.identity {
@@ -734,7 +788,7 @@
 		width: 148px;
 		height: 148px;
 		overflow: hidden;
-		border: 1px solid var(--line);
+		border: 3px solid var(--line);
 		background: var(--portrait);
 	}
 
@@ -753,17 +807,14 @@
 		letter-spacing: 0.01em;
 	}
 
-	.bar,
-	.panel {
-		border: 1px solid var(--line);
-	}
-
 	.bar {
-		padding: 8px 12px;
+		padding: 0;
 	}
 
 	.bar + .bar {
-		margin-top: 8px;
+		margin-top: 10px;
+		padding-bottom: 12px;
+		border-bottom: 1px solid var(--line);
 	}
 
 	.bar p,
@@ -782,28 +833,59 @@
 	}
 
 	.panel {
-		padding: 12px 14px;
+		padding: 4px 0 0;
 	}
 
-	.work {
+	.skills {
+		display: flex;
 		flex: 1;
+		flex-direction: column;
+		min-height: 0;
+		padding-top: 14px;
+		border-top: 1px solid var(--line);
 	}
 
-	.work ul,
-	.skill-grid {
+	.work ul {
 		margin: 0;
 		padding: 0;
 		list-style: none;
 	}
 
-	.work li {
-		padding: 8px 0;
+	.work > ul > li {
+		padding: 8px 0 12px;
 		border-bottom: 1px solid var(--rule);
 	}
 
-	.work li:last-child {
+	.work > ul > li:last-child {
 		border-bottom: 0;
 		padding-bottom: 0;
+	}
+
+	.points {
+		margin: 6px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.points li {
+		position: relative;
+		padding: 2px 0 2px 12px;
+		color: var(--muted);
+		font-size: 12.5px;
+		font-weight: 400;
+	}
+
+	.points li::before {
+		content: '•';
+		position: absolute;
+		left: 0;
+		color: var(--ink);
+	}
+
+	.work .tags {
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		margin: 8px 0 0;
 	}
 
 	.job-top,
@@ -838,9 +920,15 @@
 		font-weight: 400;
 	}
 
+	.job-title {
+		white-space: normal;
+	}
+
 	.when {
-		margin-left: 8px;
+		margin-left: 12px;
 		color: var(--purple);
+		font-weight: 500;
+		white-space: nowrap;
 	}
 
 	.tags {
@@ -865,18 +953,64 @@
 		background: #ff6300;
 	}
 
-	.skill-grid {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: 8px;
-		margin-top: 10px;
+	.skill-cols {
+		display: grid;
+		flex: 1;
+		grid-template-columns: repeat(5, minmax(0, 1fr));
+		gap: 10px 0;
+		min-height: 0;
+		margin-top: 8px;
 	}
 
-	.skill-grid img {
+	.skill-cols > div {
+		display: flex;
+		min-width: 0;
+		min-height: 0;
+		flex-direction: column;
+		padding-right: 14px;
+	}
+
+	.skill-cols > div:not(:first-child) {
+		border-left: 1px solid var(--line);
+		padding-left: 14px;
+	}
+
+	.skill-cols > div:last-child {
+		padding-right: 0;
+	}
+
+	.skill-cols h3 {
+		margin: 0 0 6px;
+		color: var(--ink);
+		font-size: 11px;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+	}
+
+	.skill-cols ul {
+		display: flex;
+		flex: 1;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		gap: 8px;
+		min-height: 0;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.skill-cols li {
+		width: var(--icon-size);
+		height: var(--icon-size);
+		flex: none;
+	}
+
+	.skill-cols img {
 		display: block;
-		width: 48px;
-		height: 48px;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
 	}
 
 	.activity {
@@ -896,7 +1030,7 @@
 	.feed {
 		flex: 1;
 		min-height: 0;
-		overflow-y: scroll;
+		overflow-y: auto;
 		scrollbar-color: var(--scroll) transparent;
 		scrollbar-width: thin;
 	}
@@ -1050,6 +1184,23 @@
 		.portrait {
 			width: 96px;
 			height: 96px;
+		}
+
+		.skill-cols {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.skill-cols > div,
+		.skill-cols > div:last-child {
+			border-left: 0;
+			padding-left: 0;
+			padding-right: 14px;
+		}
+
+		.skill-cols > div:nth-child(even) {
+			border-left: 1px solid var(--line);
+			padding-left: 14px;
+			padding-right: 0;
 		}
 	}
 </style>
